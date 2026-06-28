@@ -1,6 +1,8 @@
+@import "variables.css";
+
 :root {
-  --verde-boton: #0f5132;
-  --morpho-blue: #037BBD;
+  --verde-boton: var(--color-primary);
+  --morpho-blue: var(--color-primary);
 }
 
 /* Estructura general */

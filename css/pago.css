@@ -1,6 +1,8 @@
+@import "variables.css";
+
 /* Fondo verde y texto blanco para la tarjeta */
 .pago-card {
-  background-color: #23432e;      /* Verde oscuro personalizado */
+  background-color: var(--color-primary);      /* Verde oscuro personalizado */
   color: white;                   /* Texto blanco */
   border-radius: 8px;             /* Bordes redondeados */
   padding: 1.5rem;                /* Espaciado interno */
@@ -49,5 +51,5 @@
   background-color: #145c3f;
 }
 .bg-verde-boton {
-  background-color: #23432e !important;
+  background-color: var(--color-primary) !important;
 }

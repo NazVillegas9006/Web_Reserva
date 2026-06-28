@@ -1,6 +1,6 @@
 const traducciones = {
   es: {
-    inicio: "Inicio", galeria: "Galería", reserva: "Reserva", ayuda: "Ayuda",
+    inicio: "Inicio", galeria: "Galería", reserva: "Reserva", ayuda: "Ayuda", reportes: "Reportes",
     tituloReserva: "Reserva tu Tour", fechaTour:"Fecha del Tour:", paisVives:"País donde vives:",
     metodoPago:"Método de pago:", pagoEfectivo:"Efectivo", pagoTarjeta:"Tarjeta",
     pagoOnline:"Pago en línea", horarioTour:"Horario de Tour:", adultosLabel:"Adultos (19‑64 años)",
@@ -11,7 +11,7 @@ const traducciones = {
     btnPay: "Pagar $0 USD »"
   },
   en: {
-    inicio: "Home", galeria: "Gallery", reserva: "Booking", ayuda: "Help",
+    inicio: "Home", galeria: "Gallery", reserva: "Booking", ayuda: "Help", reportes: "Reports",
     tituloReserva: "Book Your Tour", fechaTour:"Tour Date:", paisVives:"Country you live in:",
     metodoPago:"Payment Method:", pagoEfectivo:"Cash", pagoTarjeta:"Card", pagoOnline:"Online",
     horarioTour:"Tour Time:", adultosLabel:"Adults (19‑64 yrs)", ninosLabel:"Children (9‑17 yrs)",

@@ -1,13 +1,14 @@
+@import "variables.css";
 
-    :root {
-      --verde-principal: #23432e;
-      --verde-suave: #e8f5e9;
-      --icono-calendario: #3366cc;
-      --icono-ticket: #cc3333;
-      --icono-hoja: #66aa00;
-      --icono-correo: #0099cc;
-      --icono-telefono: #cc3366;
-    }
+:root {
+  --verde-principal: var(--color-primary);
+  --verde-suave: var(--color-primary-light);
+  --icono-calendario: #3366cc;
+  --icono-ticket: #cc3333;
+  --icono-hoja: #66aa00;
+  --icono-correo: #0099cc;
+  --icono-telefono: #cc3366;
+}
 
     body {
       background-color: #f5f5f5;

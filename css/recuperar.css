@@ -1,5 +1,7 @@
+@import "variables.css";
+
 :root {
-  --verde-boton: #0f5132;
+  --verde-boton: var(--color-primary);
 }
 
 body {

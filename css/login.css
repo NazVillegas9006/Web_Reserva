@@ -1,5 +1,7 @@
+@import "variables.css";
+
 :root {
-  --morpho-blue: #0f5132;
+  --morpho-blue: var(--color-primary);
 }
 
 body {

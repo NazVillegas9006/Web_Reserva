@@ -1,0 +1,19 @@
+:root {
+  /* Paleta de colores inspirada en la naturaleza tropical y mariposas */
+  --color-primary: #1e3a27;          /* Verde selva profundo y elegante */
+  --color-primary-hover: #14281a;    /* Verde selva más oscuro */
+  --color-primary-light: #f0f4f1;    /* Fondo verde muy pálido */
+  --color-secondary: #d97706;        /* Ámbar de mariposa monarca cálido */
+  --color-secondary-hover: #b45309;  /* Ámbar más oscuro */
+  --color-accent: #0284c7;           /* Azul Morpho como acento sutil */
+  --color-dark: #1b261e;             /* Gris-verde oscuro para textos principales */
+  --color-light: #f8faf7;            /* Blanco roto suave para fondos limpios */
+  --color-white: #ffffff;
+  --color-border: #e2e8f0;
+  
+  /* Mapeos heredados para no romper los estilos existentes */
+  --verde-boton: var(--color-primary);
+  --verde-principal: var(--color-primary);
+  --bg-verde-boton: var(--color-primary);
+  --morpho-blue: var(--color-primary);
+}
