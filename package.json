@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "i18next": "^26.3.3",
+    "i18next-http-backend": "^4.0.0",
     "jsonwebtoken": "^9.0.2"
   }
 }

@@ -5,198 +5,59 @@ const API_BASE = isLocalhost
     : "http://" + window.location.hostname + ":3000";
 
 // Traducciones de la página
-const traducciones = {
-    es: {
-        inicio: "Inicio", galeria: "Galería", reserva: "Reserva", ayuda: "Ayuda", reportes: "Reportes",
-        tituloReserva: "Reserva tu Tour", fechaTour: "Fecha del Tour:", paisVives: "País donde vives:",
-        metodoPago: "Método de pago:", pagoEfectivo: "Efectivo", pagoTarjeta: "Tarjeta",
-        pagoOnline: "Pago en línea", horarioTour: "Horario de Tour:",
-        adultosLabel: "Adultos (19-64 años)", ninosLabel: "Niños (9-17 años)",
-        infantesLabel: "Infantes (0-8 años)", mayoresLabel: "Adultos Mayores (65+)",
-        aceptoTerminos: "Acepto términos y condiciones", botonReservar: "Reservar Tiquetes",
-        contactanos: "Contáctanos", placeholderPais: "Seleccione una opción",
-
-        // Gestión Admin
-        tituloGestion: "Gestión de Datos",
-        tituloPrincipal: "Datos del sistema",
-        usuariosRegistrados: "Usuarios Registrados",
-        añadirUsuario: "Añadir Usuario",
-        filtrarPorNombre: "Filtrar por Nombre",
-        buscarPorNombre: "Buscar por nombre...",
-        filtrarPorCorreo: "Filtrar por Correo",
-        buscarPorCorreo: "Buscar por correo...",
-        id: "ID",
-        nombre: "Nombre",
-        correo: "Correo",
-        rol: "Rol",
-        pais: "País",
-        acciones: "Acciones",
-        reservasRealizadas: "Reservas Realizadas",
-        añadirReserva: "Añadir Reserva",
-        filtrarPorUsuario: "Filtrar por Usuario",
-        todosLosUsuarios: "Todos los usuarios",
-        fechaDeVisita: "Fecha de Visita",
-        aplicar: "Aplicar",
-        usuario: "Usuario",
-        fechaVisita: "Fecha Visita",
-        hora: "Hora",
-        fechaReserva: "Fecha Reserva",
-        estadoPago: "Estado Pago",
-        total: "Total",
-        adultos: "Adultos",
-        ninos: "Niños",
-        infantes: "Infantes",
-        mayores: "Mayores",
-        
-        // Modals
-        editar: "Editar",
-        eliminar: "Eliminar",
-        guardar: "Guardar",
-        cancelar: "Cancelar",
-        seleccione: "Seleccione",
-        contrasena: "Contraseña",
-        contrasenaTexto: "Solo es necesario si creas un nuevo usuario o cambias la contraseña.",
-        paisProcedencia: "País de Procedencia",
-        nacionalidad: "Nacionalidad",
-        paisDeLaReserva: "País de la reserva:",
-        visitantes: "Visitantes",
-        adultosLabelModal: "Adultos (19-64 años)",
-        ninosLabelModal: "Niños (9-17 años)",
-        infantesLabelModal: "Infantes (0-8 años)",
-        mayoresLabelModal: "Adultos Mayores (65+)",
-        totalModal: "Total:",
-
-        // Mensajes de Alerta
-        noResultados: "No se encontraron resultados relacionados.",
-        accesoDenegado: "Acceso denegado. Por favor, inicie sesión como administrador.",
-        errorCargarDatos: "Hubo un error al cargar los datos.",
-        sesionExpirada: "Sesión expirada. Por favor, inicia sesión de nuevo.",
-        confirmEliminarUsuario: "¿Está seguro que desea eliminar este usuario?",
-        accesoDenegadoPropietario: "Acceso denegado: Esta reserva no te pertenece.",
-        atencionReservas: "Atención: Las reservas de este usuario",
-        seranEliminadas: "también serán eliminadas",
-        errorEliminarUsuario: "Error al eliminar usuario",
-        usuarioCreado: "Usuario creado exitosamente",
-        usuarioActualizado: "Usuario actualizado exitosamente",
-        errorGuardarUsuario: "Error al guardar usuario",
-        reservaNoEncontrada: "Reserva no encontrada",
-        reservaActualizada: "Reserva actualizada exitosamente",
-        errorGuardarReserva: "Error al guardar la reserva",
-        reservaEliminada: "Reserva eliminada exitosamente",
-        usuarioEliminado: "Usuario y sus datos relacionados eliminados exitosamente",
-        pagoExitoso: "Pago procesado con éxito.",
-        errorGeneral: "Ha ocurrido un error. Intente de nuevo.",
-        errorProcesarPago: "Error al procesar el pago. Intente de nuevo.",
-        errorConexion: "Error de conexión. Intente más tarde.",
-        reservaNoEncontradaPago: "No se encontró la reserva para procesar el pago."
-    },
-    en: {
-        inicio: "Home", galeria: "Gallery", reserva: "Booking", ayuda: "Help", reportes: "Reports",
-        tituloReserva: "Book Your Tour", fechaTour: "Tour Date:", paisVives: "Country you live in:",
-        metodoPago: "Payment Method:", pagoEfectivo: "Cash", pagoTarjeta: "Card", pagoOnline: "Online",
-        horarioTour: "Tour Time:", adultosLabel: "Adults (19-64 yrs)", ninosLabel: "Children (9-17 yrs)",
-        infantesLabel: "Infants (0-8 yrs)", mayoresLabel: "Seniors (65+ yrs)",
-        aceptoTerminos: "I agree with terms and conditions", botonReservar: "Reserve Tickets",
-        contactanos: "Contact Us", placeholderPais: "Select an option",
-
-        // Admin Management
-        tituloGestion: "Data Management",
-        tituloPrincipal: "System Data",
-        usuariosRegistrados: "Registered Users",
-        añadirUsuario: "Add User",
-        filtrarPorNombre: "Filter by Name",
-        buscarPorNombre: "Search by name...",
-        filtrarPorCorreo: "Filter by Email",
-        buscarPorCorreo: "Search by email...",
-        id: "ID",
-        nombre: "Name",
-        correo: "Email",
-        rol: "Role",
-        pais: "Country",
-        acciones: "Actions",
-        reservasRealizadas: "Completed Bookings",
-        añadirReserva: "Add Booking",
-        filtrarPorUsuario: "Filter by User",
-        todosLosUsuarios: "All users",
-        fechaDeVisita: "Visit Date",
-        aplicar: "Apply",
-        usuario: "User",
-        fechaVisita: "Visit Date",
-        hora: "Time",
-        fechaReserva: "Booking Date",
-        estadoPago: "Payment Status",
-        total: "Total",
-        adultos: "Adults",
-        ninos: "Children",
-        infantes: "Infants",
-        mayores: "Seniors",
-
-        // Modals
-        editar: "Edit",
-        eliminar: "Delete",
-        guardar: "Save",
-        cancelar: "Cancel",
-        seleccione: "Select",
-        contrasena: "Password",
-        contrasenaTexto: "Only required for new users or password changes.",
-        paisProcedencia: "Country of Origin",
-        nacionalidad: "Nationality",
-        paisDeLaReserva: "Country of booking:",
-        visitantes: "Visitors",
-        adultosLabelModal: "Adults (19-64 yrs)",
-        ninosLabelModal: "Children (9-17 yrs)",
-        infantesLabelModal: "Infants (0-8 yrs)",
-        mayoresLabelModal: "Seniors (65+ yrs)",
-        totalModal: "Total:",
-
-        // Alert Messages
-        noResultados: "No related results were found.",
-        accesoDenegado: "Access denied. Please log in as an administrator.",
-        errorCargarDatos: "There was an error loading the data.",
-        sesionExpirada: "Session expired. Please log in again.",
-        confirmEliminarUsuario: "Are you sure you want to delete this user?",
-        accesoDenegadoPropietario: "Access denied: This reservation doesn't belong to you.",
-        atencionReservas: "Warning: This user's reservations",
-        seranEliminadas: "will also be deleted",
-        errorEliminarUsuario: "Error deleting user",
-        usuarioCreado: "User created successfully",
-        usuarioActualizado: "User updated successfully",
-        errorGuardarUsuario: "Error saving user",
-        reservaNoEncontrada: "Booking not found",
-        reservaActualizada: "Booking updated successfully",
-        errorGuardarReserva: "Error saving booking",
-        reservaEliminada: "Booking deleted successfully",
-        usuarioEliminado: "User and related data deleted successfully",
-        pagoExitoso: "Payment processed successfully.",
-        errorGeneral: "An error has occurred. Please try again.",
-        errorProcesarPago: "Error processing payment. Please try again.",
-        errorConexion: "Connection error. Please try again later.",
-        reservaNoEncontradaPago: "Booking not found to process payment."
+// Proxy para compatibilidad hacia atrás con accesos directos: traducciones[idioma][clave]
+const traducciones = new Proxy({}, {
+    get(target, lang) {
+        return new Proxy({}, {
+            get(innerTarget, key) {
+                if (window.i18next && typeof window.i18next.t === 'function') {
+                    return window.i18next.t(key);
+                }
+                return "";
+            }
+        });
     }
-};
+});
 
 function cambiarIdioma(id) {
     localStorage.setItem("idioma", id);
+    if (window.i18next && typeof window.i18next.changeLanguage === 'function') {
+        window.i18next.changeLanguage(id, (err, t) => {
+            if (err) return console.error('Error al cambiar idioma:', err);
+            translateDOM();
+        });
+    } else {
+        const event = new Event('languageChanged');
+        window.dispatchEvent(event);
+    }
+}
+
+function translateDOM() {
+    if (!window.i18next || typeof window.i18next.t !== 'function') return;
+    const t = window.i18next.t;
+
     // Cambiar textos de elementos con data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (traducciones[id][key]) {
-            el.textContent = traducciones[id][key];
+        const val = t(key);
+        if (val && val !== key) {
+            el.innerHTML = val;
         }
     });
 
     // Cambiar placeholders de inputs con data-i18n-placeholder
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.getAttribute('data-i18n-placeholder');
-        if (traducciones[id][key]) {
-            el.placeholder = traducciones[id][key];
+        const val = t(key);
+        if (val && val !== key) {
+            el.placeholder = val;
         }
     });
 
     // Actualizar select2 en la página de reserva si está inicializado
     const paisSelect = $('#pais');
     if (paisSelect.data('select2')) {
-        const placeholder = traducciones[id].placeholderPais || "Seleccione una opción";
+        const placeholder = t("placeholderPais") || "Seleccione una opción";
         paisSelect.select2({
             placeholder: placeholder,
             width: '100%'
@@ -211,7 +72,7 @@ function cambiarIdioma(id) {
             const $select = $(select);
             if ($select.data('select2')) {
                 const placeholderKey = $select.attr('data-placeholder-i18n');
-                const placeholder = traducciones[id][placeholderKey] || $select.attr('placeholder');
+                const placeholder = t(placeholderKey) || $select.attr('placeholder');
                 $select.select2({
                     placeholder: placeholder,
                     width: '100%',
@@ -224,6 +85,22 @@ function cambiarIdioma(id) {
     // Disparar evento para que otros scripts reaccionen al cambio de idioma
     const event = new Event('languageChanged');
     window.dispatchEvent(event);
+}
+
+// Inicialización de i18next
+if (window.i18next && window.i18nextHttpBackend) {
+    window.i18next
+        .use(window.i18nextHttpBackend)
+        .init({
+            lng: localStorage.getItem("idioma") || "es",
+            fallbackLng: "es",
+            backend: {
+                loadPath: 'locales/{{lng}}/translation.json',
+            }
+        }, function(err, t) {
+            if (err) return console.error('Error al inicializar i18next:', err);
+            translateDOM();
+        });
 }
 
 
