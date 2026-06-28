@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reportes - La Fortuna Butterfly Garden</title>
+
+  <!-- Fuentes y estilos -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      background-color: #0f5132 !important;
+    }
+
+    footer {
+      background-color: #0f5132;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    .card {
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    .card-header h3 {
+      font-size: 1.25rem;
+    }
+
+    canvas {
+      max-width: 400px;
+      height: 300px;
+      margin: auto;
+      padding: 10px;
+    }
+
+    .card-body {
+      text-align: center;
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .btn-container button {
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabecera -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/img/Logo.png" alt="Logo" width="50" class="me-2 rounded-circle" />
+        <span class="fw-bold text-white">La Fortuna Butterfly Garden</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="container my-5">
+    <h1 class="mb-4 text-center">Reportes</h1>
+
+    <!-- Gráfico Usuarios Registrados -->
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h3 class="mb-0">Usuarios Registrados (Nacionales vs Extranjeros)</h3>
+      </div>
+      <div class="card-body">
+        <canvas id="graficoUsuarios"></canvas>
+      </div>
+    </div>
+
+    <!-- Gráfico de Reservas -->
+    <div class="card">
+      <div class="card-header bg-success text-white">
+        <h3 class="mb-0">Reservas Realizadas (Ingresos y Cantidad)</h3>
+      </div>
+      <div class="card-body">
+        <canvas id="graficoReservas"></canvas>
+      </div>
+    </div>
+
+    <!-- Botón para exportar -->
+    <div class="btn-container">
+      <button class="btn btn-primary" onclick="exportarPDF()">Exportar Reporte</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container text-center text-white">
+      <img src="assets/img/Logo.png" width="60" class="mb-2">
+      <h5 class="mb-0">La Fortuna Butterfly Garden</h5>
+      <p class="mb-0">Connect with Us and Explore</p>
+      <p class="mb-0" data-i18n="contactanos">Contáctanos</p>
+      <p class="mb-0">butter.fly@gmail.com</p>
+      <p>2098 6714</p>
+    </div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Función para obtener los datos de usuarios y reservas desde el backend
+    async function cargarDatos() {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        console.error("No se encontró token. Redirigiendo a login.");
+        window.location.href = 'login.html';
+        return;
+      }
+
+      try {
+        const fetchOptions = {
+          headers: { 'Authorization': `Bearer ${token}` }
+        };
+
+        // Obtener datos de usuarios y reservas
+        const [usuariosRes, reservasRes] = await Promise.all([
+          fetch("http://localhost:3000/usuarios", fetchOptions),
+          fetch("http://localhost:3000/reservas", fetchOptions)
+        ]);
+
+        if (!usuariosRes.ok) throw new Error("Error al obtener usuarios");
+        if (!reservasRes.ok) throw new Error("Error al obtener reservas");
+
+        const usuarios = await usuariosRes.json();
+        const reservas = await reservasRes.json();
+
+        // Generar los gráficos con los datos
+        renderizarGraficoUsuarios(usuarios);
+        renderizarGraficoReservas(reservas);
+
+      } catch (error) {
+        console.error("Error al cargar datos:", error);
+        alert("Hubo un error al cargar los datos.");
+      }
+    }
+
+    // Generar gráfico de usuarios (nacionales vs extranjeros)
+    function renderizarGraficoUsuarios(usuarios) {
+      const nacionales = usuarios.filter(u => u.pais_procedencia === 'Costa Rica').length;
+      const extranjeros = usuarios.length - nacionales;
+
+      const ctxUsuarios = document.getElementById("graficoUsuarios").getContext("2d");
+      new Chart(ctxUsuarios, {
+        type: 'doughnut',
+        data: {
+          labels: ['Nacionales', 'Extranjeros'],
+          datasets: [{
+            data: [nacionales, extranjeros],
+            backgroundColor: ['#7ED6DF', '#E056FD'],
+            borderColor: ['#fff', '#fff'],
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: 'bottom' }
+          }
+        }
+      });
+    }
+
+    // Generar gráfico de reservas (por mes)
+    function renderizarGraficoReservas(reservas) {
+      const meses = Array(12).fill(0);
+      reservas.forEach(reserva => {
+        const fecha = new Date(reserva.fecha_reserva);
+        const mes = fecha.getMonth();
+        meses[mes]++;
+      });
+
+      const ctxReservas = document.getElementById("graficoReservas").getContext("2d");
+      new Chart(ctxReservas, {
+        type: 'bar',
+        data: {
+          labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+          datasets: [{
+            label: 'Cantidad de Reservas',
+            data: meses,
+            backgroundColor: 'rgba(0,123,255,0.5)',
+            borderColor: '#007bff',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+    }
+
+    window.addEventListener("DOMContentLoaded", cargarDatos);
+  </script>
+
+  <script>
+    // Incluir la librería jsPDF
+    const script = document.createElement('script');
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";
+    document.head.appendChild(script);
+
+    // Función para exportar los gráficos a PDF
+    function exportarPDF() {
+      console.log("Exportando PDF..."); // Verifica que la función se ejecute
+
+      const { jsPDF } = window.jspdf; // Obtener jsPDF desde la librería incluida
+
+      const doc = new jsPDF(); // Crear una nueva instancia de jsPDF
+
+      // Obtener los gráficos en formato base64
+      const canvasUsuarios = document.getElementById("graficoUsuarios");
+      const imgUsuarios = canvasUsuarios.toDataURL("image/png");
+      
+
+      const canvasReservas = document.getElementById("graficoReservas");
+      const imgReservas = canvasReservas.toDataURL("image/png");
+
+      // Título
+      doc.setFont("Arial", "B", 20); // Título en negrita
+      doc.setTextColor(0, 51, 102); // Color del texto
+      doc.text("Reporte de Usuarios y Reservas", 105, 20, { align: "center" });
+
+      // Agregar el gráfico de usuarios
+      doc.addImage(imgUsuarios, "PNG", 20, 30, 170, 120); // Gráfico de usuarios
+      doc.setFont("Arial", "I", 12); // Cambiar a fuente cursiva
+      
+
+      // Agregar el gráfico de reservas
+      doc.addImage(imgReservas, "PNG", 20, 150, 170, 120); // Gráfico de reservas
+      
+
+      // Descargar el PDF generado
+      doc.save("reporte.pdf");
+
+      console.log("PDF generado y descargado");
+    }
+  </script>
+</body>
+</html>
+

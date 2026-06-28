@@ -1,0 +1,23 @@
+/* Navbar y footer */
+.navbar, footer {
+  background-color: var(--verde-boton) !important;
+  color: white;
+  padding: 10px 0;
+}
+
+.navbar .navbar-brand span {
+  font-size: 1.2rem;
+}
+
+footer {
+  text-align: center;
+  padding: 15px 0;
+}
+
+footer img {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}

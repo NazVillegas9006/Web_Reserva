@@ -1,0 +1,158 @@
+:root {
+  --morpho-blue: #0f5132;
+}
+
+body {
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* NAVBAR & FOOTER */
+.navbar, footer {
+  background-color: var(--morpho-blue) !important;
+}
+
+footer {
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+footer img {
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* LOGIN CONTAINER */
+.login-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem auto;
+  max-width: 960px;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+/* FORMULARIO */
+.login-card {
+  flex: 1 1 400px;
+  padding: 2rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card form {
+  width: 100%;
+  max-width: 350px;
+}
+
+/* IMAGEN */
+.login-image {
+  flex: 1 1 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* SELECTOR DE IDIOMA */
+.language-switcher {
+  display: flex;
+  align-items: center;
+}
+
+#languageSelector {
+  font-size: 0.9rem;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  color: #333;
+  min-width: 120px;
+  appearance: none;
+  background-image: url('data:image/svg+xml,%3Csvg fill="%23000" height="14" viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M7 10l5 5 5-5z"/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px;
+  padding-right: 30px;
+}
+
+/* RESPONSIVE */
+/* Ajustes visuales en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    margin: 1rem;
+    border-radius: 12px;
+  }
+
+  .login-card {
+    padding: 1.5rem;
+    order: 2;
+  }
+
+  .login-card form {
+    max-width: 100%;
+  }
+
+  .login-image {
+    height: 200px;
+    order: 1;
+  }
+
+  .login-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+}
+
+/* Ajustes en pantallas grandes */
+@media screen and (min-width: 769px) {
+  .login-container {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .login-card form {
+    max-width: 320px;
+  }
+}
+
+/* Mensaje de bienvenida más descriptivo */
+.login-card h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.login-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* El enlace "Registrarse" ahora se muestra alineado a la derecha y tiene el mismo estilo de color */
+.text-center a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: normal; /* Sin negrita */
+  display: block;
+  margin-top: 10px; /* Ajusta la distancia con respecto a los botones */
+  text-align: right;  /* Alineación a la derecha */
+}
+
+.text-center a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reserva - Butterfly Garden</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/reserva.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/img/Logo.png" alt="Logo" width="50" class="me-2 rounded-circle" />
+                <span class="fw-bold text-white">La Fortuna Butterfly Garden</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" data-i18n="inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="galeria.html" data-i18n="galeria">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="reserva.html" data-i18n="reserva">Reserva</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-i18n="ayuda">Ayuda</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center ms-3">
+                    <select id="languageSelector" class="form-select form-select-sm me-3">
+                        <option value="es">Español</option>
+                        <option value="en">English</option>
+                    </select>
+                    <a href="login.html" class="btn btn-outline-light">Iniciar sesión</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <div class="text-center mb-4">
+            <img src="assets/img/Anuncio.png" alt="Anuncio" class="img-fluid rounded" style="max-width: 400px" />
+        </div>
+
+        <section id="reserva">
+            <h2 class="section-title text-center text-success mb-4" data-i18n="tituloReserva">
+                Reserva tu Tour
+            </h2>
+            <div class="reserva-card card p-4 shadow-sm">
+                <div class="mb-4">
+                    <label class="form-label fw-bold" data-i18n="fechaTour">Fecha del Tour:</label>
+                    <input type="text" id="fechaTour" class="form-control reserva-input" placeholder="Seleccione fecha"
+                        readonly />
+                </div>
+                <div class="row g-3 mb-4 align-items-start">
+                    <div class="col-md-6">
+                        <label for="pais" class="form-label fw-bold" data-i18n="paisVives">País donde vives:</label>
+                        <div class="position-relative">
+                            <span class="position-absolute top-50 start-0 translate-middle-y ps-2 text-secondary">
+                                <i class="fas fa-flag"></i>
+                            </span>
+                            <select id="pais" class="form-select ps-5"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="metodoPago" class="form-label fw-bold" data-i18n="metodoPago">Método de
+                            pago:</label>
+                        <div class="position-relative">
+                            <span class="position-absolute top-50 start-0 translate-middle-y px-2 text-secondary">
+                                <i class="fas fa-credit-card"></i>
+                            </span>
+                            <select id="metodoPago" class="form-select ps-5">
+                                <option value="efectivo" data-i18n="pagoEfectivo">
+                                    Efectivo
+                                </option>
+                                <option value="tarjeta" data-i18n="pagoTarjeta">
+                                    Tarjeta
+                                </option>
+                                <option value="online" data-i18n="pagoOnline">Online</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold" data-i18n="horarioTour">Horario de Tour:</label>
+                    <div id="horarios" class="btn-group w-100 flex-wrap" role="group">
+                        <button type="button" class="btn btn-outline-secondary horario-btn flex-grow-1">
+                            07:00:00
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary horario-btn flex-grow-1">
+                            09:00:00
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary horario-btn flex-grow-1">
+                            11:00:00
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary horario-btn flex-grow-1">
+                            13:00:00
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary horario-btn flex-grow-1">
+                            15:00:00
+                        </button>
+                    </div>
+                </div>
+                <div id="cubos" class="row mt-4 gy-3"></div>
+                <div class="mt-4 text-end">
+                    <h4>Total: <span id="totalUSD">$0 USD</span></h4>
+                    <input type="hidden" id="precio_total_hidden_reserva_cliente" />
+                </div>
+                <div class="form-check mb-3">
+                    <input type="checkbox" id="acepto" class="form-check-input" />
+                    <label for="acepto" class="form-check-label" data-i18n="aceptoTerminos">I agree with terms and
+                        conditions</label>
+                </div>
+                <button id="btnReservar" class="btn btn-success w-100" disabled data-i18n="botonReservar">
+                    Reserve Tickets
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-white text-center py-4 bg-verde-boton">
+        <img src="assets/img/Logo.png" alt="Logo" width="70" class="rounded-circle mb-2" />
+        <h5>La Fortuna Butterfly Garden</h5>
+        <p class="mb-0">Connect with Us and Explore</p>
+        <p class="mb-0"><span data-i18n="contactanos">Contact Us</span></p>
+        <p class="mb-0">butter.fly@gmail.com</p>
+        <p>8888 8888</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script src="js/utils.js"></script>
+    <script src="js/session.js"></script>
+    <script src="js/reserva.js"></script>
+</body>
+
+</html>

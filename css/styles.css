@@ -1,0 +1,111 @@
+:root {
+  --verde-boton: #0f5132;
+  --morpho-blue: #037BBD;
+}
+
+/* Estructura principal */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+  flex: 1;
+}
+
+/* Navbar y footer */
+.navbar, footer {
+  background-color: var(--verde-boton) !important;
+  color: white;
+}
+
+.navbar .navbar-brand span {
+  font-size: 1.2rem;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 15px;
+}
+
+footer img {
+  border-radius: 50%;
+  width: 70px;
+  margin-bottom: 10px;
+}
+
+/* Hero con imagen de fondo */
+.hero-image {
+  background-image: url('../assets/img/imag.jpg'); /* Asegúrate que sea tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 70vh; /* Altura correcta */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image .bg-opacity-75 {
+  background-color: rgba(255, 255, 255, 0.9); /* Blanco translúcido */
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+/* Galería previa */
+.gallery-preview img {
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-preview img:hover {
+  transform: scale(1.05);
+}
+
+/* Selector de idioma */
+.language-switcher {
+  display: flex;
+  align-items: center;
+}
+
+#languageSelector {
+  font-size: 0.9rem;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #333;
+  width: auto;
+  min-width: 120px;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,<svg fill='%23333' height='14' viewBox='0 0 24 24' width='14' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px;
+  padding-right: 30px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .language-switcher {
+    margin-top: 10px;
+    justify-content: flex-start;
+  }
+
+  .hero-image {
+    min-height: 60vh;
+    text-align: center;
+  }
+
+  .hero-image .bg-opacity-75 {
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+}

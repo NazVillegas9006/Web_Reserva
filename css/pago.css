@@ -1,0 +1,53 @@
+/* Fondo verde y texto blanco para la tarjeta */
+.pago-card {
+  background-color: #23432e;      /* Verde oscuro personalizado */
+  color: white;                   /* Texto blanco */
+  border-radius: 8px;             /* Bordes redondeados */
+  padding: 1.5rem;                /* Espaciado interno */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Bordes de los inputs */
+.pago-card input.form-control {
+  border: 2px solid #ced4da;      /* Color de borde inicial */
+  border-radius: 5px;
+}
+
+/* Inputs inválidos (con error) */
+.pago-card input.form-control.is-invalid {
+  border-color: #dc3545; /* rojo Bootstrap para errores */
+  background-color: #fff5f5;
+}
+
+/* Texto de validación */
+.invalid-feedback {
+  display: none;
+  color: #dc3545; /* rojo para errores */
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Mostrar el mensaje cuando hay error */
+.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+/* Botón de pago dentro de la tarjeta */
+.pago-card .btn-pagar {
+  background-color: #198754;     /* Verde Bootstrap */
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.pago-card .btn-pagar:hover {
+  background-color: #145c3f;
+}
+.bg-verde-boton {
+  background-color: #23432e !important;
+}

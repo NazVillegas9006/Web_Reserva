@@ -1,0 +1,57 @@
+
+    :root {
+      --verde-principal: #23432e;
+      --verde-suave: #e8f5e9;
+      --icono-calendario: #3366cc;
+      --icono-ticket: #cc3333;
+      --icono-hoja: #66aa00;
+      --icono-correo: #0099cc;
+      --icono-telefono: #cc3366;
+    }
+
+    body {
+      background-color: #f5f5f5;
+    }
+
+    .bg-verde-boton {
+      background-color: var(--verde-principal) !important;
+    }
+
+    .navbar-brand span {
+      color: white !important;
+    }
+
+    .card-reserva {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card-reserva h3 {
+      color: var(--verde-principal);
+    }
+
+    .icono-calendario { color: var(--icono-calendario); }
+    .icono-ticket { color: var(--icono-ticket); }
+    .icono-hoja { color: var(--icono-hoja); }
+    .icono-correo { color: var(--icono-correo); }
+    .icono-telefono { color: var(--icono-telefono); }
+
+    .btn-volver {
+      background-color: var(--verde-principal);
+      color: white;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .btn-volver:hover {
+      background-color: #1b5e20;
+    }
+
+    footer img {
+      width: 60px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
