@@ -4,8 +4,9 @@ const API_BASE = isLocalhost
     ? "http://localhost:3000"
     : "http://" + window.location.hostname + ":3000";
 
-// Traducciones de la página
-// Proxy para compatibilidad hacia atrás con accesos directos: traducciones[idioma][clave]
+// Capa de compatibilidad sobre i18next:
+// "traducciones" (Proxy) y "cambiarIdioma" interceptan las llamadas del sistema anterior
+// y las redirigen al nuevo motor i18next de forma transparente para evitar romper scripts legados.
 const traducciones = new Proxy({}, {
     get(target, lang) {
         return new Proxy({}, {
