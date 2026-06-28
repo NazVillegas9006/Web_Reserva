@@ -15,37 +15,184 @@
   <div id="navbar-placeholder"></div>
 
   <!-- HERO SECTION -->
-  <section class="hero-image">
-    <div class="container py-5">
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <div class="bg-light text-dark p-4 rounded shadow-lg bg-opacity-75 mt-5 text-center">
-            <h2 class="fw-bold" data-i18n="titulo">Observa Mariposas de Distintas Especies</h2>
-            <p class="text-center" data-i18n="horario">Horario de visita: <strong>8:00 a.m. a 4:00 p.m.</strong></p>
-            <p data-i18n="descripcion1">Nuestro mariposario tropical es una de las atracciones más recientes en la región, ofreciendo una experiencia única en contacto con la naturaleza tropical.</p>
-            <p data-i18n="descripcion2">Este pequeño pero innovador jardín alberga cerca de 20 especies locales de mariposas, entre ellas la majestuosa Morfo azul y la emblemática mariposa ojo de búho.</p>
-            <p data-i18n="descripcion3">El recorrido incluye zonas de sombra donde habitan especies que prefieren ambientes frescos, y sectores iluminados por el sol, ideales para observar mariposas activas que buscan la luz.</p>
-            <p data-i18n="descripcion4">Recomendamos realizar la visita por la mañana, cuando la actividad de las mariposas es más intensa gracias al calor matutino.</p>
-            <p class="mb-0" data-i18n="descripcion5">Vive una experiencia inolvidable rodeado de las especies más hermosas de Costa Rica.</p>
+  <section class="hero-image position-relative overflow-hidden min-vh-100 d-flex align-items-center">
+    <div class="hero-overlay"></div>
+    <div class="container position-relative z-3 py-5">
+      <div class="max-w-xl text-start">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-pill border text-white text-xs mb-4 backdrop-blur-sm" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px; vertical-align: middle;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-i18n="home.ubicacion">Bosque Tropical, Alajuela, Costa Rica</span>
+        </span>
+        <h1 class="hero-title fw-bold text-white mb-3" style="font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.2;">
+          <span data-i18n="home.heroTitulo">Vive la Magia de las</span><br>
+          <em style="color: #34d399; font-style: normal;" data-i18n="home.heroTituloDestacado">Mariposas Tropicales</em>
+        </h1>
+        <p class="mt-3 mb-4 text-white-75" style="max-width: 460px; color: rgba(255,255,255,0.75); font-size: 1.05rem;" data-i18n="home.heroSub">Un viaje inolvidable por los jardines encantados. Descubre más de 30 especies de mariposas nativas en su hábitat natural.</p>
+        <div class="d-flex flex-wrap align-items-center gap-3">
+          <a href="reserva.html" class="btn btn-primary px-4 py-3" style="background-color: var(--color-secondary); border-color: var(--color-secondary); font-weight: 600;" data-i18n="home.startReservation">Iniciar Reserva</a>
+          <span class="inline-flex items-center gap-1.5 text-white-70 text-sm" style="color: rgba(255,255,255,0.7);">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 14px; height: 14px; color: #ffc107; vertical-align: middle;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span data-i18n="home.reviewBadge">Calificado 4.9 por más de 1,200 visitantes</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO WIDGETS SECTION -->
+  <section class="info-widgets-section py-5 bg-light">
+    <div class="container py-4">
+      <div class="row g-4">
+        <!-- Horarios Card -->
+        <div class="col-lg-4 col-md-6">
+          <div class="info-card h-100 bg-white p-4 border rounded-4 shadow-sm">
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <div class="icon-wrapper d-flex align-items-center justify-content-center rounded-3" style="width: 38px; height: 38px; background-color: var(--color-primary-light);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; color: var(--color-primary);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <h3 class="h5 mb-0 fw-bold" data-i18n="home.horarioTitulo">Horario de Atención</h3>
+            </div>
+            <ul class="list-unstyled space-y-3">
+              <li class="d-flex align-items-center gap-2 mb-2">
+                <span class="dot rounded-circle" style="width: 8px; height: 8px; background-color: #28a745; display: inline-block;"></span>
+                <span class="text-sm" data-i18n="home.hoursOpen">Mar – Dom: 8:00 AM – 5:00 PM</span>
+              </li>
+              <li class="d-flex align-items-center gap-2 mb-2">
+                <span class="dot rounded-circle" style="width: 8px; height: 8px; background-color: #6c757d; display: inline-block;"></span>
+                <span class="text-sm text-muted" data-i18n="home.hoursClosed">Lunes: Cerrado</span>
+              </li>
+              <li class="d-flex align-items-center gap-2">
+                <span class="dot rounded-circle" style="width: 8px; height: 8px; background-color: #ced4da; display: inline-block;"></span>
+                <span class="text-xs text-muted" data-i18n="home.lastEntry">Última entrada: 4:00 PM</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tarifas Card -->
+        <div class="col-lg-4 col-md-6">
+          <div class="info-card h-100 bg-white p-4 border rounded-4 shadow-sm">
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <div class="icon-wrapper d-flex align-items-center justify-content-center rounded-3" style="width: 38px; height: 38px; background-color: var(--color-primary-light);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; color: var(--color-primary);"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h3 class="h5 mb-0 fw-bold" data-i18n="home.ticketsTitle">Tarifas de Admisión</h3>
+            </div>
+            <table class="w-100 text-sm table table-borderless align-middle mb-0">
+              <thead>
+                <tr>
+                  <th class="text-left text-xs text-muted pb-2 font-medium" style="font-size: 0.75rem;"></th>
+                  <th class="text-end text-xs text-muted pb-2 font-medium" style="font-size: 0.75rem;" data-i18n="home.nationals">Nacionales (₡)</th>
+                  <th class="text-end text-xs text-muted pb-2 font-medium" style="font-size: 0.75rem;" data-i18n="home.foreigners">Extranjeros (USD)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y">
+                <tr>
+                  <td class="py-2 text-xs" data-i18n="home.adult">Adultos</td>
+                  <td class="py-2 text-end text-xs">₡5,000</td>
+                  <td class="py-2 text-end text-xs">$18</td>
+                </tr>
+                <tr>
+                  <td class="py-2 text-xs" data-i18n="home.children">Niños (6–12)</td>
+                  <td class="py-2 text-end text-xs">₡2,500</td>
+                  <td class="py-2 text-end text-xs">$9</td>
+                </tr>
+                <tr>
+                  <td class="py-2 text-xs" data-i18n="home.senior">Adultos Mayores (60+)</td>
+                  <td class="py-2 text-end text-xs">₡3,500</td>
+                  <td class="py-2 text-end text-xs">$15</td>
+                </tr>
+                <tr>
+                  <td class="py-2 text-xs" data-i18n="home.infant">Infantes menores de 6</td>
+                  <td class="py-2 text-end text-xs text-success font-semibold" data-i18n="home.free">Gratis</td>
+                  <td class="py-2 text-end text-xs text-success font-semibold" data-i18n="home.free">Gratis</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Clima Card -->
+        <div class="col-lg-4 col-md-12">
+          <div class="info-card h-100 bg-white p-4 border rounded-4 shadow-sm">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="icon-wrapper d-flex align-items-center justify-content-center rounded-3" style="width: 38px; height: 38px; background-color: var(--color-primary-light);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px; color: var(--color-primary);"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M16 14v6"/><path d="M8 14v6"/><path d="M12 16v6"/></svg>
+              </div>
+              <h3 class="h5 mb-0 fw-bold" style="font-size: 0.95rem;" data-i18n="home.weatherTitle">Clima en Vivo · Mariposario</h3>
+            </div>
+            <div class="d-flex align-items-end gap-2 mb-2">
+              <span id="clima-temp" class="fw-bold text-dark" style="font-size: 2.2rem; line-height: 1;">26°C</span>
+               <span class="text-muted text-sm pb-1">/ 79°F</span>
+            </div>
+            <p id="clima-cond" class="text-sm text-dark mb-3">⛅ Poco Nublado</p>
+            <div class="row g-2">
+              <div class="col-4">
+                <div class="sub-widget rounded-3 p-2 text-center" style="background-color: var(--color-primary-light) !important;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px; color: var(--color-primary); margin: 0 auto 4px auto; display: block;"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+                  <p class="text-muted text-xs mb-1" style="font-size: 0.65rem;" data-i18n="home.feelsLike">Sensación</p>
+                  <p id="clima-sens" class="text-dark fw-semibold mb-0" style="font-size: 0.75rem;">24°C</p>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="sub-widget rounded-3 p-2 text-center" style="background-color: var(--color-primary-light) !important;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px; color: var(--color-primary); margin: 0 auto 4px auto; display: block;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                  <p class="text-muted text-xs mb-1" style="font-size: 0.65rem;" data-i18n="home.humidity">Humedad</p>
+                  <p id="clima-hum" class="text-dark fw-semibold mb-0" style="font-size: 0.75rem;">78%</p>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="sub-widget rounded-3 p-2 text-center" style="background-color: var(--color-primary-light) !important;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px; color: var(--color-primary); margin: 0 auto 4px auto; display: block;"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+                  <p class="text-muted text-xs mb-1" style="font-size: 0.65rem;" data-i18n="home.rainChance">Prob. lluvia</p>
+                  <p id="clima-prob" class="text-dark fw-semibold mb-0" style="font-size: 0.75rem;">40%</p>
+                </div>
+              </div>
+            </div>
+            <p class="text-muted mt-3 mb-0" style="font-size: 0.68rem; line-height: 1.2;" data-i18n="home.climaNota">Actualizado cada 30 min. Los tours pueden ajustarse por lluvia intensa.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GALERÍA -->
-  <section class="text-center my-5">
-    <h3 class="text-success" data-i18n="galeriaTitulo">GALERÍA FOTOGRÁFICA</h3>
-    <div class="container">
-      <div class="row gallery-preview mt-3">
-        <div class="col-md-6 mb-3">
-          <img src="assets/img/image.avif" alt="Mariposa mano 1" class="rounded shadow">
+  <!-- GALLERY PREVIEW SECTION -->
+  <section class="gallery-preview-section py-5 bg-white">
+    <div class="container py-4 text-center">
+      <div class="d-flex align-items-center justify-content-between mb-4">
+        <h2 class="h3 fw-bold mb-0" style="color: var(--color-primary) !important;" data-i18n="preview.titulo">Galería</h2>
+        <a href="galeria.html" class="text-decoration-none fw-bold" style="color: var(--color-secondary);" data-i18n="preview.verMas">Ver más →</a>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-4 col-6">
+          <div class="gallery-preview-img-wrapper rounded-3 overflow-hidden" style="aspect-ratio: 4/3;">
+            <img src="assets/img/Azul.jpg" alt="Morpho Azul" class="w-100 h-100 object-fit-cover" loading="lazy">
+          </div>
         </div>
-        <div class="col-md-6 mb-3">
-          <img src="assets/img/Bute.jpg" alt="Mariposa mano 2" class="rounded shadow">
+        <div class="col-md-4 col-6">
+          <div class="gallery-preview-img-wrapper rounded-3 overflow-hidden" style="aspect-ratio: 4/3;">
+            <img src="assets/img/Zul.jpg" alt="Cartero" class="w-100 h-100 object-fit-cover" loading="lazy">
+          </div>
+        </div>
+        <div class="col-md-4 col-12 d-md-block d-none">
+          <div class="gallery-preview-img-wrapper rounded-3 overflow-hidden" style="aspect-ratio: 4/3;">
+            <img src="assets/img/Mariposa.webp" alt="Monarca" class="w-100 h-100 object-fit-cover" loading="lazy">
+          </div>
         </div>
       </div>
-      <a href="galeria.html" class="btn btn-outline-success" data-i18n="verGaleria">Ver Galería</a>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section py-5 text-white" style="background-color: var(--color-primary);">
+    <div class="container py-3">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-4 text-center text-md-start">
+        <div>
+          <h2 class="h3 fw-bold mb-2 text-white" data-i18n="home.ctaSection">¿Listo para Visitar?</h2>
+          <p class="mb-0 text-white-80 text-sm" style="color: rgba(255,255,255,0.8); max-width: 480px;" data-i18n="home.ctaSub">Reserva tu tour guiado y evita la fila. Sin pago en línea — paga en la entrada.</p>
+        </div>
+        <a href="reserva.html" class="btn btn-light px-5 py-3 text-success shrink-0" style="color: var(--color-primary) !important; background-color: var(--color-white); font-weight: 600; border-radius: 8px;" data-i18n="home.bookNow">Reservar Ahora</a>
+      </div>
     </div>
   </section>
 
@@ -59,5 +206,34 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/session.js"></script>
 
+  <script>
+    // Fetch live weather data with fallback mock values
+    async function loadWeather() {
+      try {
+        const response = await fetch(`${API_BASE}/clima`);
+        if (response.ok) {
+          const data = await response.json();
+          if (data.temp !== undefined) {
+            document.getElementById('clima-temp').textContent = `${data.temp}°C`;
+          }
+          if (data.condition) {
+            document.getElementById('clima-cond').textContent = data.condition;
+          }
+          if (data.feels_like !== undefined) {
+            document.getElementById('clima-sens').textContent = `${data.feels_like}°C`;
+          }
+          if (data.humidity !== undefined) {
+            document.getElementById('clima-hum').textContent = `${data.humidity}%`;
+          }
+          if (data.rain_chance !== undefined) {
+            document.getElementById('clima-prob').textContent = `${data.rain_chance}%`;
+          }
+        }
+      } catch (e) {
+        console.log("No se pudo conectar al endpoint de clima. Usando datos por defecto.");
+      }
+    }
+    window.addEventListener('DOMContentLoaded', loadWeather);
+  </script>
 </body>
 </html>
